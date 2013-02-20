@@ -14,6 +14,8 @@ int val = 0;                    // variable for reading the pin status
 int irVal,fadeValue;
 int repeat = 0;                // How many times should we loop before stopping? (0 for no stop)
 
+boolean isflashing = false;
+
 void setup() { 
   pinMode(ledPin, OUTPUT);      // declare LED as output 
   pinMode(inputPin, INPUT);     // declare sensor as input
@@ -27,6 +29,9 @@ void loop(){
 
   // use the input value to fade the led
   if (irVal >= 50) {    // check if the input is HIGH
+    isflashing = true;
+    }
+    if(isflashing == true){
     analogWrite(ledPin, irVal);  // turn the LED on HIGH is the voltage level
     delay(1000);                // wait for a second
     analogWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
