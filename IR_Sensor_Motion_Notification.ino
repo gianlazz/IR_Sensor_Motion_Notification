@@ -28,13 +28,13 @@ void loop(){
   delay(100);                    // wait for this much time before printing next value 
 
   // use the input value to fade the led
-  if (irVal >= 50) {    // check if the input is HIGH
+  if (irVal >= 100) {    // check if the input is HIGH
     isflashing = !isflashing;
     }
     if(isflashing == true){
-    analogWrite(ledPin, irVal);  // turn the LED on HIGH is the voltage level
+    digitalWrite(ledPin, irVal);  // turn the LED on HIGH is the voltage level
     delay(1000);                // wait for a second
-    analogWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
+    digitalWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
     delay(1000);     
   }
 } 
